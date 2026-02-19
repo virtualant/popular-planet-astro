@@ -1,0 +1,23 @@
+html {
+  background-color: #f1f5f9;
+  font-family: sans-serif;
+  background-color: black;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 80ch;
+  padding: 1rem;
+  line-height: 1.5;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 2rem 0;
+  font-size: 2.5rem;
+}
