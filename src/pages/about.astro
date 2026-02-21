@@ -1,5 +1,11 @@
 ---
 import '../styles/global.css';
+import '../components/Navigation.astro';
+import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = "About Me";
 
@@ -11,6 +17,7 @@ const identity = {
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const hobbies = ["Music", "3d modeling", "Micrology", "Game development", "Cycling"];
 
 const skillColor = "crimson";
 const fontWeight = "bold";
@@ -34,28 +41,23 @@ const textCase = "uppercase";
     </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-    <h1>{pageTitle}</h1>
-    <h2>... and my new Astro site!</h2>
+    <BaseLayout pageTitle={pageTitle}>
+        <h2>... and my new Astro site!</h2>
 
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-
-    <p>Here are a few facts about me:</p>
+        <p>Here are a few facts about me:</p>
+        
+        <ul>
+        <li>My name is {identity.firstName}.</li>
     
-    <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-    {identity.hobbies.length >= 2 &&
-        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-    }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
+        <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+        {identity.hobbies.length >= 2 &&
+            <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+        }
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+    </BaseLayout>
   </body>
 </html>
